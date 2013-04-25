@@ -52,6 +52,8 @@ $(ASSETS)/js/jquery.js: $(ASSETS)
 	@echo Making $@
 	@curl -s -LC - -o $@ http://code.jquery.com/jquery.js
 
+setup: $(SETUP)
+
 clean:
 	@echo Making $@
 	$(RM) *html $(OUTPUT)/*.html $(INDEX)
