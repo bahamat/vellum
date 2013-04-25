@@ -1,0 +1,29 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">Vellum</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="index"><i class="icon-book icon-white"></i> Back to Index</a></li>
+        </ul>
+        <form class="form-search navbar-form pull-right">
+          <div class="input-append">
+            <input name="q" type="text" class="span2 search-query" placeholder="Search">
+            <button type="submit" class="btn"><i class="icon-search"></i>&nbsp;</button>
+          </div><!-- /.input-append" -->
+        </form>
+      </div><!-- /.nav-collapse -->
+    </div><!-- /.container-fluid -->
+  </div><!-- /.navbar-inner -->
+</div><!-- /.navbar -->
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+
+<div class="container-fluid">
+<hr>
