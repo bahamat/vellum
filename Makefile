@@ -43,7 +43,7 @@ $(OUTPUT)/%.html: $(INPUT)/%.md $(SUPPORT)
 
 $(ASSETS):
 	@echo Making $@
-	@curl -s -LOC - http://twitter.github.io/bootstrap/assets/bootstrap.zip
+	@curl -s -LOC - http://getbootstrap.com/2.3.2/assets/bootstrap.zip
 	@unzip -q bootstrap.zip
 	@$(RM) bootstrap.zip
 	@mv bootstrap $@
