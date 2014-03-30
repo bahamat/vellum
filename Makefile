@@ -61,3 +61,5 @@ clean:
 dist-clean:
 	@echo Making $@
 	$(RM) -r $(INPUT) $(OUTPUT) $(ASSETS)
+
+.PHONY: setup all clean dist-clean
