@@ -1,12 +1,14 @@
 INPUT=src
 OUTPUT=site
 
+BOOTSTRAP_VERSION=3.3.6
+
 ASSETS=$(OUTPUT)/assets
 TEMPLATES=_tt
 
 INDEX=$(INPUT)/index.md
 
-CSS=-c assets/css/bootstrap.css -c assets/css/bootstrap-responsive.css
+CSS=-c assets/css/bootstrap.min.css -c assets/css/bootstrap-theme.min.css
 PANDOC_OPTS=-T Vellum -H $(TEMPLATES)/viewport.tt -B $(TEMPLATES)/body-head.tt -A $(TEMPLATES)/body-foot.tt
 PANDOC=pandoc -s $(PANDOC_OPTS) $(CSS) -f markdown -t html -o
 
@@ -26,7 +28,7 @@ $(INDEX): $(SETUP) $(markdown)
 	@echo "% Index" > $@
 	@for file in $(markdown); do \
 		head -1 $$file | sed 's/^[#%] /* [/' | tr -d '\n' >> $@ ;\
-		basename $$file '.md' | awk '{print "]("$$1")"}' >> $@ ;\
+		basename $$file '.md' | awk '{print "]("$$1".html)"}' >> $@ ;\
 	done
 
 $(INPUT):
@@ -43,10 +45,10 @@ $(OUTPUT)/%.html: $(INPUT)/%.md $(SUPPORT)
 
 $(ASSETS):
 	@echo Making $@
-	@curl -s -LOC - http://getbootstrap.com/2.3.2/assets/bootstrap.zip
-	@unzip -q bootstrap.zip
-	@$(RM) bootstrap.zip
-	@mv bootstrap $@
+	@curl -s -LOC - https://github.com/twbs/bootstrap/releases/download/v$(BOOTSTRAP_VERSION)/bootstrap-$(BOOTSTRAP_VERSION)-dist.zip
+	@unzip -q bootstrap-$(BOOTSTRAP_VERSION)-dist.zip
+	@$(RM) bootstrap-$(BOOTSTRAP_VERSION)-dist.zip
+	@mv bootstrap-$(BOOTSTRAP_VERSION)-dist $@
 
 $(ASSETS)/js/jquery.js: $(ASSETS)
 	@echo Making $@
